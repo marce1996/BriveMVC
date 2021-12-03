@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BriveMVC.Models.SucursalModel>
+
+@{ 
+    ViewData["Title"] = "Sucursal";
+}
+
+<h1>Lista de sucursales</h1>
+
+<p>
+    <a asp-action="Create">Agregar Sucursal</a>
+</p>
+<table class="table table-responsive-md">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreSucursal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreSucursal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdSucursal" class="btn btn-primary">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdSucursal" class="btn btn-secondary">Detalle</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdSucursal" class="btn btn-danger">Eliminar</a>
+                    <a asp-controller="Producto" asp-action="ObtenerProductos" asp-route-id="@item.IdSucursal" class="btn btn-primary">Agregar Producto</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

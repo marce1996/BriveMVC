@@ -1,0 +1,41 @@
+﻿@model BriveMVC.Models.SucursalModel
+
+@{
+    ViewData["Title"] = "crear sucursales";
+}
+<hr />
+<h3>Sucursal</h3>
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group row">
+        <label asp-for="NombreSucursal" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="NombreSucursal" class="form-control" />
+            <span asp-validation-for="NombreSucursal" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Direccion" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Direccion" class="form-control" />
+            <span asp-validation-for="Direccion" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Telefono" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Telefono" class="form-control" />
+            <span asp-validation-for="Telefono" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <input type="submit" value="Grabar" class="btn btn-primary" /> |
+            <a asp-action="ObtenerSucursal" class="btn btn-light">Regresar</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
